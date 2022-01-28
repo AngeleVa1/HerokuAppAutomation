@@ -9,8 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 
-public class NextWindow extends BaseTest {
+public class NextWindow {
     ArrayList<String> newTab;
+    WebDriver driver;
 
     public NextWindow(WebDriver driver) {
         this.driver = driver;
@@ -24,10 +25,12 @@ public class NextWindow extends BaseTest {
         driver.findElement(By.linkText("Click Here")).click();
         newTab = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(newTab.get(1));
+
     }
 
     public String newWindow() {
         return newTabHeadline.getText();
+
     }
 
     public void navigateToMainTab() {
